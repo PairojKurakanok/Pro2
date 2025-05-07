@@ -1,11 +1,12 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Win : MonoBehaviour
 {
-    public GameObject winScreen;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        winScreen.SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("Scene3");
+        }
     }
 }
